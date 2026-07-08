@@ -1,0 +1,45 @@
+[
+  {
+    "customerId": "cust_1001",
+    "balance": 500,
+    "cart": [],
+    "createdAt": "2026-07-01T08:30:00Z"
+  },
+  {
+    "customerId": "cust_1002",
+    "balance": 500,
+    "cart": [
+      {
+        "productId": 2,
+        "quantity": 1
+      }
+    ],
+    "createdAt": "2026-07-05T14:15:00Z"
+  },
+  {
+    "customerId": "cust_1003",
+    "balance": 140,
+    "cart": [
+      {
+        "productId": 1,
+        "quantity": 2
+      },
+      {
+        "productId": 4,
+        "quantity": 1
+      }
+    ],
+    "createdAt": "2026-06-20T10:00:00Z"
+  },
+  {
+    "customerId": "cust_1004",
+    "balance": 20,
+    "cart": [
+      {
+        "productId": 3,
+        "quantity": 1
+      }
+    ],
+    "createdAt": "2026-07-08T09:45:00Z"
+  }
+]
