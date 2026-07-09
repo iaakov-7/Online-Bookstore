@@ -16,10 +16,6 @@
     "balance": 140,
     "cart": [
       {
-        "productId": 1,
-        "quantity": 22
-      },
-      {
         "productId": 4,
         "quantity": 1
       }

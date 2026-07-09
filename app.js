@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
   res.json({ success: true, mesaage: "Welcome to Online Bookstore" });
 });
 
-app.get("/helth", (req, res) => {
+app.get("/health", (req, res) => {
   res.json({ success: true, mesaage: "Server is very helthy" });
 });
 

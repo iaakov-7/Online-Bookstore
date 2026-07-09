@@ -33,7 +33,7 @@ export async function addBookToCart(customerId, bookId, quantity) {
   const books = await readJson(DB_BASE_PATH + "/books.json");
   const book = books.find((book) => book.id === bookId);
   if (!book) throw createError(404, `Book ${bookId} not found`);
-  if (book.stock < 0) throw createError(400, "Not enough in stock");
+  if (book.stock < quantity) throw createError(400, "Not enough in stock");
   const cart = cust.cart;
   let bookExistsInCart = false;
   for (const item of cart) {
@@ -63,7 +63,7 @@ export async function removeBookFromCart(customerId, bookId) {
 export async function checkout(customerId) {
   const customers = await readJson(DB_BASE_PATH + "/customers.json");
   const cust = customers.find((cust) => cust.customerId === customerId);
-  if (!cust) throw createError(404, `Customer ${customerId} is not fount`);
+  if (!cust) throw createError(404, `Customer ${customerId} is not found`);
   if (cust.cart.length === 0) throw createError(400, "The cart is empty");
   let totalPrice = 0;
   let orderItems = [];

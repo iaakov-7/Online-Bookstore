@@ -34,9 +34,9 @@ router.get("/cart", async (req, res) => {
 router.post("/cart/items", async (req, res) => {
   try {
     const { customerId, productId, quantity } = req.body;
-    const valhdation = validateAddToCart(customerId, productId, quantity);
-    if (!valhdation.isValid) {
-      res.status(400).json({ success: false, message: valhdation.errors });
+    const validation = validateAddToCart(customerId, productId, quantity);
+    if (!validation.isValid) {
+      res.status(400).json({ success: false, message: validation.errors });
     }
     const addedToCart = await addBookToCart(customerId, productId, quantity);
     res
@@ -44,12 +44,10 @@ router.post("/cart/items", async (req, res) => {
       .json({ success: true, message: "Book added to cart successfully" });
   } catch (err) {
     console.log(err.message);
-    res
-      .status(err.statusCode || 500)
-      .json({
-        success: false,
-        message: err.status ? err.message : "Internal server error",
-      });
+    res.status(err.statusCode || 500).json({
+      success: false,
+      message: err.status ? err.message : "Internal server error",
+    });
   }
 });
 
@@ -67,7 +65,7 @@ router.delete("/cart/items/:productId", async (req, res) => {
         .status(400)
         .json({ success: false, message: "customerId must be a number" });
     }
-    const removed = await removeBookFromCart(customerId, customerId);
+    const removed = await removeBookFromCart(customerId, productId);
 
     res.json({ success: true, message: "Book removed from cart successfully" });
   } catch (err) {
