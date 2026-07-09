@@ -3,7 +3,7 @@
     "id": 1,
     "name": "The Alchemist",
     "price": 60,
-    "stock": 15
+    "stock": 12
   },
   {
     "id": 2,
@@ -15,7 +15,7 @@
     "id": 3,
     "name": "The Hobbit",
     "price": 75,
-    "stock": 10
+    "stock": 9
   },
   {
     "id": 4,

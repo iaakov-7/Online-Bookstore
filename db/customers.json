@@ -8,12 +8,7 @@
   {
     "customerId": 2,
     "balance": 500,
-    "cart": [
-      {
-        "productId": 2,
-        "quantity": 3
-      }
-    ],
+    "cart": [],
     "createdAt": "2026-07-05T14:15:00Z"
   },
   {
@@ -33,13 +28,14 @@
   },
   {
     "customerId": 4,
-    "balance": 20,
-    "cart": [
-      {
-        "productId": 3,
-        "quantity": 1
-      }
-    ],
+    "balance": 140,
+    "cart": [],
     "createdAt": "2026-07-08T09:45:00Z"
+  },
+  {
+    "customerId": 10,
+    "balance": 320,
+    "cart": [],
+    "createdAt": "2026-07-09T13:18:29.757Z"
   }
 ]

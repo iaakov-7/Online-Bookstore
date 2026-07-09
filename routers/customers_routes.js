@@ -4,7 +4,7 @@ import {
   addBookToCart,
   removeBookFromCart,
 } from "../services/store_service.js";
-import { validateAddToCart } from "../validator.js";
+import { validateAddToCart } from "../utils/validator.js";
 
 export const router = express.Router();
 
@@ -39,28 +39,17 @@ router.post("/cart/items", async (req, res) => {
       res.status(400).json({ success: false, message: valhdation.errors });
     }
     const addedToCart = await addBookToCart(customerId, productId, quantity);
-    if (addToCart === "cust not found") {
-      return res
-        .status(404)
-        .json({ success: false, message: "Customer not found" });
-    }
-    if (addedToCart === "book not found") {
-      return res
-        .status(404)
-        .json({ success: false, message: "Book not found" });
-    }
-    if (addedToCart === "not enough stock") {
-      return res
-        .status(400)
-        .json({ success: false, message: "not enough stock" });
-    }
-
     res
       .status(201)
       .json({ success: true, message: "Book added to cart successfully" });
   } catch (err) {
     console.log(err.message);
-    res.status(500).json({ success: false, message: "Internal server error" });
+    res
+      .status(err.statusCode || 500)
+      .json({
+        success: false,
+        message: err.status ? err.message : "Internal server error",
+      });
   }
 });
 
@@ -79,20 +68,14 @@ router.delete("/cart/items/:productId", async (req, res) => {
         .json({ success: false, message: "customerId must be a number" });
     }
     const removed = await removeBookFromCart(customerId, customerId);
-    if (removed === "cust not found") {
-      return res
-        .status(404)
-        .json({ success: false, message: "Customer not found" });
-    }
-    if (removed === "book is not in cart") {
-      return res
-        .status(404)
-        .json({ success: false, message: "book is not in cart" });
-    }
+
     res.json({ success: true, message: "Book removed from cart successfully" });
   } catch (err) {
     console.log(err.message);
-    res.status(500).json({ success: false, message: "Internal server error" });
+    res.status(err.statusCode || 500).json({
+      success: false,
+      message: err.statusCode ? err.message : "Internal server error",
+    });
   }
 });
 

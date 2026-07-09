@@ -1,0 +1,28 @@
+[
+  {
+    "id": 1,
+    "customerId": 4,
+    "items": [
+      {
+        "book_id": 3,
+        "price": 75,
+        "quantity": 1
+      }
+    ],
+    "total": 75,
+    "createdAt": "2026-07-09T19:10:51.694Z"
+  },
+  {
+    "id": 2,
+    "customerId": 10,
+    "items": [
+      {
+        "book_id": 1,
+        "price": 60,
+        "quantity": 3
+      }
+    ],
+    "total": 180,
+    "createdAt": "2026-07-09T19:16:27.645Z"
+  }
+]
