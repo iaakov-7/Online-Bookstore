@@ -106,3 +106,9 @@ async function createOrder(customerId, items, totalPrice) {
   orders.push(order);
   await writeJson(DB_BASE_PATH + "/orders.json", orders);
 }
+
+export async function getOrders(customerId) {
+  let orders = await readJson(DB_BASE_PATH + "/orders.json");
+  orders = orders.filter((order) => order.customerId === customerId);
+  return orders;
+}

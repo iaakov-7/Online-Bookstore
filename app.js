@@ -15,11 +15,17 @@ app.use("/customers", customerRouter);
 app.use("/orders", orderRouter);
 
 app.get("/", (req, res) => {
-  res.json({ mesaage: "Welcome to Online Bookstore" });
+  res.json({ success: true, mesaage: "Welcome to Online Bookstore" });
 });
 
 app.get("/helth", (req, res) => {
-  res.json({ mesaage: "Server is very helthy" });
+  res.json({ success: true, mesaage: "Server is very helthy" });
+});
+
+app.use((req, res) => {
+  res
+    .status(404)
+    .json({ success: false, message: `route ${req.url} not found` });
 });
 
 app.listen(PORT, () => console.log(`Server is listening on port ${PORT}`));
