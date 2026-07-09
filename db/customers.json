@@ -2,12 +2,7 @@
   {
     "customerId": 1,
     "balance": 500,
-    "cart": [
-      {
-        "productId": 1,
-        "quantity": 2
-      }
-    ],
+    "cart": [],
     "createdAt": "2026-07-01T08:30:00Z"
   },
   {
