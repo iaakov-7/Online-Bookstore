@@ -1,12 +1,13 @@
 import express from "express";
 import "dotenv/config";
 import { router as bookRouter } from "./routers/books_routes.js";
-
+import { router as customerRouter } from "./routers/customer_routes.js";
 const PORT = process.env.PORT;
 
 const app = express();
-
+app.use(express.json());
 app.use("/books", bookRouter);
+app.use("/customers", customerRouter);
 
 app.get("/", (req, res) => {
   res.json({ mesaage: "Welcome to Online Bookstore" });

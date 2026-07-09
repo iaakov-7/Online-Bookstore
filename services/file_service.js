@@ -9,6 +9,6 @@ export async function readJson(filePath) {
 }
 
 export async function writeJson(filePath, content) {
-  const stringContent = JSON.stringify(content);
+  const stringContent = JSON.stringify(content, null, 2);
   await fs.writeFile(filePath, stringContent);
 }
