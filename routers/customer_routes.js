@@ -10,7 +10,13 @@ export const router = express.Router();
 
 router.get("/cart", async (req, res) => {
   try {
-    const customerId = req.query.customerId;
+    const customerId = parseInt(req.query.customerId);
+    if (isNaN(customerId)) {
+      return res.status(400).json({
+        success: false,
+        message: "customerId must be an integer number",
+      });
+    }
     const customer = await getCustomerById(customerId);
     if (!customer) {
       return res
@@ -84,6 +90,29 @@ router.delete("/cart/items/:productId", async (req, res) => {
         .json({ success: false, message: "book is not in cart" });
     }
     res.json({ success: true, message: "Book removed from cart successfully" });
+  } catch (err) {
+    console.log(err.message);
+    res.status(500).json({ success: false, message: "Internal server error" });
+  }
+});
+
+router.get("/account/balance", async (req, res) => {
+  try {
+    const customerId = parseInt(req.query.customerId);
+    if (isNaN(customerId)) {
+      return res.status(400).json({
+        success: false,
+        message: "customerId must be an integer number",
+      });
+    }
+    const customer = await getCustomerById(customerId);
+    if (!customer) {
+      return res
+        .status(404)
+        .json({ success: false, message: "Customer not found" });
+    }
+    const balance = customer.balance;
+    res.json({ success: true, balance: balance });
   } catch (err) {
     console.log(err.message);
     res.status(500).json({ success: false, message: "Internal server error" });
