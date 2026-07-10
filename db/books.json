@@ -3,13 +3,13 @@
     "id": 1,
     "name": "The Alchemist",
     "price": 60,
-    "stock": 10
+    "stock": 7
   },
   {
     "id": 2,
     "name": "Harry Potter",
     "price": 85,
-    "stock": 20
+    "stock": 19
   },
   {
     "id": 3,

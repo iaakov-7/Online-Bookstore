@@ -23,9 +23,10 @@ app.get("/health", (req, res) => {
 });
 
 app.use((req, res) => {
-  res
-    .status(404)
-    .json({ success: false, message: `route ${req.url} not found` });
+  res.status(404).json({
+    success: false,
+    message: `route ${req.url}  for method ${req.method} not found`,
+  });
 });
 
 app.listen(PORT, () => console.log(`Server is listening on port ${PORT}`));

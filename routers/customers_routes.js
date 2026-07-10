@@ -36,7 +36,9 @@ router.post("/cart/items", async (req, res) => {
     const { customerId, productId, quantity } = req.body;
     const validation = validateAddToCart(customerId, productId, quantity);
     if (!validation.isValid) {
-      res.status(400).json({ success: false, message: validation.errors });
+      return res
+        .status(400)
+        .json({ success: false, message: validation.errors });
     }
     const addedToCart = await addBookToCart(customerId, productId, quantity);
     res

@@ -37,5 +37,36 @@
     ],
     "total": 120,
     "createdAt": "2026-07-09T19:42:29.023Z"
+  },
+  {
+    "id": 4,
+    "customerId": 1,
+    "items": [
+      {
+        "book_id": 1,
+        "price": 60,
+        "quantity": 2
+      },
+      {
+        "book_id": 2,
+        "price": 85,
+        "quantity": 1
+      }
+    ],
+    "total": 205,
+    "createdAt": "2026-07-10T08:39:38.200Z"
+  },
+  {
+    "id": 5,
+    "customerId": 1,
+    "items": [
+      {
+        "book_id": 1,
+        "price": 60,
+        "quantity": 1
+      }
+    ],
+    "total": 60,
+    "createdAt": "2026-07-10T08:41:15.316Z"
   }
 ]
