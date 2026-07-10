@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/health", (req, res) => {
-  res.json({ success: true, mesaage: "Server is very helthy" });
+  res.json({ success: true, mesaage: "Server is very healthy" });
 });
 
 app.use((req, res) => {

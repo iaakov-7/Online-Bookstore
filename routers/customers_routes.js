@@ -48,7 +48,7 @@ router.post("/cart/items", async (req, res) => {
     console.log(err.message);
     res.status(err.statusCode || 500).json({
       success: false,
-      message: err.status ? err.message : "Internal server error",
+      message: err.statusCode ? err.message : "Internal server error",
     });
   }
 });

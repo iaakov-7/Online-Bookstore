@@ -54,7 +54,7 @@ Methode | Route | Description
 
 - `GET` | `/` | Opening statement
 - `GET` | `/health` | Server health check
-- `GET` | `/products` | Displays the products list, supporting query- `inStock`, `maxPrice`, `search`
+- `GET` | `/books` | Displays the products list, supporting query- `inStock`, `maxPrice`, `search`
 - `GET` | `/customers/cart` | Displays a customer's shopping cart by query- `customerId`
 - `POST` | `/customers/cart/items`| Adds a product to the customer's cart, required body with - `customerId`, `productId`,`quantity`
 - `DELETE` | `/customers/cart/items/:productId`| Removes a product from the customer's cart, required body with - `customerId`

@@ -6,9 +6,12 @@ const STARTING_BALANCE = process.env.STARTING_BALANCE;
 
 export async function getBooks(inStock, maxPrice, search) {
   let books = await readJson(DB_BASE_PATH + "/books.json");
-  if (inStock) books = books.filter((book) => book.stock > 0);
+  if (inStock === "true") books = books.filter((book) => book.stock > 0);
   if (maxPrice) books = books.filter((book) => book.price <= maxPrice);
-  if (search) books = books.filter((book) => book.name.includes(search));
+  if (search)
+    books = books.filter((book) =>
+      book.name.toLowerCase().includes(search.toLowerCase()),
+    );
   return books;
 }
 
