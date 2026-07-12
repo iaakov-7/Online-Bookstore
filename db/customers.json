@@ -39,5 +39,22 @@
     "balance": 380,
     "cart": [],
     "createdAt": "2026-07-09T19:40:38.400Z"
+  },
+  {
+    "customerId": 11,
+    "balance": 440,
+    "cart": [],
+    "createdAt": "2026-07-12T06:10:06.256Z"
+  },
+  {
+    "customerId": 12,
+    "balance": 500,
+    "cart": [
+      {
+        "productId": 3,
+        "quantity": 1
+      }
+    ],
+    "createdAt": "2026-07-12T06:12:39.420Z"
   }
 ]

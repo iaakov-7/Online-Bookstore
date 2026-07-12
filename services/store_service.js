@@ -27,7 +27,7 @@ export async function addBookToCart(customerId, bookId, quantity) {
   if (!cust) {
     ((cust = {
       customerId,
-      balance: STARTING_BALANCE,
+      balance: Number(STARTING_BALANCE),
       cart: [],
       createdAt: new Date(),
     }),

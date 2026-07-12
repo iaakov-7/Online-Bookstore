@@ -68,5 +68,18 @@
     ],
     "total": 60,
     "createdAt": "2026-07-10T08:41:15.316Z"
+  },
+  {
+    "id": 6,
+    "customerId": 11,
+    "items": [
+      {
+        "book_id": 1,
+        "price": 60,
+        "quantity": 1
+      }
+    ],
+    "total": 60,
+    "createdAt": "2026-07-12T06:11:29.275Z"
   }
 ]
